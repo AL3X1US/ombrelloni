@@ -37,8 +37,6 @@
                 } else {
                     td.textContent = counter;
                     td.id = counter;
-                    td.classList.add("bg-primary");
-                    td.classList.add("text-white");
                     td.setAttribute("onclick", "add_remove(" + counter + ")");
                     counter++;
                     console.log(td);
@@ -50,12 +48,12 @@
 
         function add_remove(counter) {
             const td = document.getElementById(counter);
-            if (td.classList.contains("bg-primary")){
-                td.classList.remove("bg-primary");
-                td.classList.add("bg-secondary", "text-white");
-            }else{
-                td.classList.remove("bg-secondary");
-                td.classList.add("bg-primary");
+            td.classList.value = bg
+            text = td.textContent;
+            if (text == '') {
+                td.textContent = counter
+            } else {
+                td.textContent = '';
             }
         }
     </script>
