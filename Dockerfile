@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # 3️⃣ Installa Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # 4️⃣ Imposta la cartella di lavoro
 WORKDIR /var/www
@@ -26,7 +26,7 @@ COPY . .
 # 8️⃣ Esegui gli script di post-installazione ora che artisan esiste
 RUN php artisan key:generate
 RUN php artisan config:clear
-RUN php artisan cache:clear
+#RUN php artisan cache:clear
 
 # 9️⃣ Espone la porta 8000
 EXPOSE 8000

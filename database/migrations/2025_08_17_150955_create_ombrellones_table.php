@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ombrellones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('numero')->unique();
+            $table->integer('numero')->unique();
             $table->boolean('occupato')->default(false);
             $table->timestamps();
         });
